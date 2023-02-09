@@ -38,7 +38,7 @@
 
 ## ***Materials Used***
 ***
-* Link to Trello: 
+* Link to Trello: (https://trello.com/b/WEMpUfFK/hairline)
 
 ## ***Future Features***
 * 
