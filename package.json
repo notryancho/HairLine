@@ -1,0 +1,21 @@
+{
+  "name": "hairline",
+  "version": "1.0.0",
+  "description": "## ***Description*** *** #### HairLine is an application that provides users with a variety of hairstyles based on the user's preferences and hair type.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/notryancho/HairLine.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/notryancho/HairLine/issues"
+  },
+  "homepage": "https://github.com/notryancho/HairLine#readme"
+}
