@@ -3,6 +3,8 @@ import {Route, Routes} from 'react-router-dom'
 import './styles/app.css';
 import Home from './pages/Home';
 import About from './pages/About';
+import Browse from "./pages/Browse";
+import Search from "./pages/Search";
 
 const App = () => {
     return (
@@ -11,8 +13,8 @@ const App = () => {
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path="/about" element={<About />} />
-                    {/* <Route path="/search" element={<Search />} />
-                    <Route path="/browse" element={<Browse />} /> */}
+                    <Route path="/search" element={<Search />} />
+                    <Route path="/browse" element={<Browse />} />
                 </Routes>
             </main>
             
