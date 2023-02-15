@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/notryancho/HairLine#readme",
   "dependencies": {
-    "react-bootstrap": "^2.7.2"
+    "react-bootstrap": "^2.7.2",
+    "styled-components": "^5.3.6"
   }
 }

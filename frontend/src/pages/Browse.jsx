@@ -10,7 +10,7 @@ const Browse = () => {
       <Row xs={1} md={2} lg={3} className="hairstyles-gallery">
         <Col>
           <Card>
-            <Card.Img variant="top" src="frontend/public/hairstyles/wavyshort.png" alt="wavyshort" />
+            <Card.Img variant="top" src="/hairstyles/wavyshort.png" alt="wavyshort" />
             <Card.Body>
               <Card.Title>Wavy Short</Card.Title>
               <Card.Text>
@@ -21,7 +21,7 @@ const Browse = () => {
         </Col>
         <Col>
           <Card>
-            <Card.Img variant="top" src="frontend/public/hairstyles/wavymed.png" alt="wavy med" />
+            <Card.Img variant="top" src="/hairstyles/wavymed.png" alt="wavy med" />
             <Card.Body>
               <Card.Title>Wavy Medium</Card.Title>
               <Card.Text>
@@ -32,7 +32,7 @@ const Browse = () => {
         </Col>
         <Col>
           <Card>
-            <Card.Img variant="top" src="frontend/public/hairstyles/wavylong.png" alt="wavy long" />
+            <Card.Img variant="top" src="/hairstyles/wavylong.png" alt="wavy long" />
             <Card.Body>
               <Card.Title>Wavy Long</Card.Title>
               <Card.Text>
