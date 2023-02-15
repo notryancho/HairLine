@@ -3,22 +3,19 @@ const mongoose = require('mongoose');
 const hairstyleSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
-  price: {
-    type: Number,
-    required: true,
+    required: true
   },
   imageUrl: {
     type: String,
-    required: true,
+    required: true
   },
+  tag: {
+    type: String,
+    required: true
+  }
 });
 
-const Hairstyle = mongoose.model('Hairstyle', hairstyleSchema);
+module.exports = mongoose.model('Hairstyle', hairstyleSchema);
+
 
 module.exports = Hairstyle;
