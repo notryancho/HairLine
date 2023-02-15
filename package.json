@@ -4,7 +4,7 @@
   "description": "## ***Description*** *** #### HairLine is an application that provides users with a variety of hairstyles based on the user's preferences and hair type.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1"
     
   },
   "repository": {
