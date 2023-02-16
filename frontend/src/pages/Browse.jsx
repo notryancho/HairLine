@@ -7,8 +7,9 @@ const Browse = () => {
     <div>
       {window.location.pathname !== '/' && <Nav />}
       <h1>Browse Hairstyles</h1>
-      <img src="/hairstyles/afrolong.png" alt="Hairstyle 1" />
+      <img src="./hairstyles/afrolong.png" alt="thick hairstyle"></img>
     </div>
+
   );
 }
 
