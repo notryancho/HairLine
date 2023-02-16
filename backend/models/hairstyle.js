@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
-const { Schema } = require('mongoose')
+const { Schema } = mongoose;
 
-const hairstyle = new Schema (
-{
+const hairstyleSchema = new Schema ({
   name: {
     type: String,
     required: true
@@ -20,4 +19,5 @@ const hairstyle = new Schema (
 module.exports = mongoose.model('Hairstyle', hairstyleSchema);
 
 
-module.exports = Hairstyle;
+
+

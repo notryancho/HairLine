@@ -1,13 +1,16 @@
+const db = require('../db')
 const mongoose = require('mongoose');
-const Image = require('./models/Image');
+const Hairstyle = require('../models/hairstyle')
 
+db.on('error', console.error.bind(console, 'MongoDB connection error'))
 // Connect to MongoDB database
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/hairline', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-const images = [
+const main = async () => {
+    const hairstyles = [
   {
     name: 'Wavy Short',
     url: 'https://i.imgur.com/udyC7em.png',
@@ -15,86 +18,84 @@ const images = [
   },
   {
     name: 'Wavy Medium',
-    img: 'https://i.imgur.com/jDi5otR.png',
+    url: 'https://i.imgur.com/jDi5otR.png',
     tags: ['wavy']
   },
   {
     name: 'Wavy Long',
-    img: 'https://i.imgur.com/EHGBaX4.png',
+    url: 'https://i.imgur.com/EHGBaX4.png',
     tags: ['wavy'],
   },
   {
     name: 'Thin Short',
-    img: 'https://i.imgur.com/5N1jlIt.png',
+    url: 'https://i.imgur.com/5N1jlIt.png',
     tags: ['thin'],
   },
   {
     name: 'Thin Medium',
-    img: 'https://i.imgur.com/BA2afIo.png',
+    url: 'https://i.imgur.com/BA2afIo.png',
     tags: ['thin'],
   },
   {
     name: 'Thin Medium',
-    img: 'https://i.imgur.com/8Ei9sWu.png',
+    url: 'https://i.imgur.com/8Ei9sWu.png',
     tags: ['thin'],
   },
   {
     name: 'Thick Short',
-    img: 'https://i.imgur.com/NlerdLe.png',
+    url: 'https://i.imgur.com/NlerdLe.png',
     tags: ['thick'],
   },
   {
     name: 'Thick Medium',
-    img: 'https://i.imgur.com/0iR4MK4.png',
+    url: 'https://i.imgur.com/0iR4MK4.png',
     tags: ['thick'],
   },
   {
     name: 'Thick Long',
-    img: 'https://i.imgur.com/TwPs86T.png',
+    url: 'https://i.imgur.com/TwPs86T.png',
     tags: ['thick'],
   },
   {
     name: 'Fine Short',
-    img: 'https://i.imgur.com/HmPs0RD.png',
+    url: 'https://i.imgur.com/HmPs0RD.png',
     tags: ['fine'],
   },
   {
     name: 'Fine Medium',
-    img: 'https://i.imgur.com/7mODHpU.png',
+    url: 'https://i.imgur.com/7mODHpU.png',
     tags: ['fine'],
   },
   {
     name: 'Fine Long',
-    img: 'https://i.imgur.com/7MtPC4h.png',
+    url: 'https://i.imgur.com/7MtPC4h.png',
     tags: ['fine'],
   },
   {
     name: 'Afro Short',
-    img: 'https://i.imgur.com/eTIWAsx.png',
+    url: 'https://i.imgur.com/eTIWAsx.png',
     tags: ['afro'],
   },
   {
     name: 'Afro Medium',
-    img: 'https://i.imgur.com/Vcldxp0.png',
+    url: 'https://i.imgur.com/Vcldxp0.png',
     tags: ['afro'],
   },
   {
     name: 'Afro Long',
-    img: 'https://i.imgur.com/C1gFMpj.png',
+    url: 'https://i.imgur.com/C1gFMpj.png',
     tags: ['afro'],
-  },
-  
-  
-  
+  }
+
 ];
+await Hairstyle.insertMany(hairstyles)
+console.log('I made it work. I think.')
+}
 
+const run = async () => {
+    await main () 
+    db.close()
+}
 
-Image.create(images)
-  .then(() => {
-    console.log('Images seeded successfully');
-    mongoose.connection.close();
-  })
-  .catch((err) => {
-    console.error(err);
-    mongoose.connection.close();
-  });
+run()
+
