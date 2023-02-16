@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom'
+import { getImagesByTag } from './api';
+
 
 const displayImages = async (tag) => {
   try {
@@ -24,7 +26,7 @@ const tagButtons = document.querySelectorAll('.tag-button');
 tagButtons.forEach((button) => {
   button.addEventListener('click', (event) => {
     const tag = event.target.dataset.tag;
-    displayImages(tag); // display the filtered images when a tag button is clicked
+    displayImages(tag);
   });
 });
 
