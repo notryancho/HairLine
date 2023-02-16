@@ -1,8 +1,8 @@
-// import React from "react";
+import React from "react";
 import Nav from "../components/Nav";
 // import ImageGrid from "../components/ImageGrid";
 
-const Search = () => {
+const Search = () => { 
   // const [selectedTag, setSelectedTag] = useState("");
 
   const handleTagClick = (tag) => {
