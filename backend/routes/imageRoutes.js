@@ -1,10 +1,16 @@
-router.get('/images/:tag', async (req, res) => {
-    const tag = req.params.tag;
+const express = require('express');
+const router = express.Router();
+const Image = require('../models/Image'); 
+
+router.get('/images', async (req, res) => {
+    const tag = req.query.tag; // Retrieving tag from query parameter
     try {
-      const hairstyles = await Hairstyle.find({ tag });
-      res.status(200).json(hairstyles);
+      const images = await Image.find({ tags: tag }); // Querying the database to retrieve images with matching tag
+      res.json(images); // Returning the matching images as a JSON response
     } catch (err) {
-      res.status(500).json({ message: err.message });
+      console.error(err);
+      res.status(500).send('Server error');
     }
   });
   
+  module.exports = router;

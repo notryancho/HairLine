@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 3001
 
 const app = express()
 const db = require('./db')
+app.use('/api', require('./routes/images'));
 
 // Connect to MongoDB
 db.connect()
