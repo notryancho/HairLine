@@ -1,19 +1,17 @@
-
-import Nav from '../components/Nav';
-import ImageGrid from "../components/ImageGrid";
-import React, { useState } from "react";
+// import React from "react";
+import Nav from "../components/Nav";
+// import ImageGrid from "../components/ImageGrid";
 
 const Search = () => {
+  // const [selectedTag, setSelectedTag] = useState("");
 
-  const [selectedTag, setSelectedTag] = useState("");
   const handleTagClick = (tag) => {
-    setSelectedTag(tag);
+    // setSelectedTag(tag);
   };
-
 
   return (
     <div>
-      {window.location.pathname !== '/' && <Nav />}
+      {window.location.pathname !== "/" && <Nav />}
       <h1>Search</h1>
       <div>
         <button onClick={() => handleTagClick("thick")}>Thick</button>
@@ -23,10 +21,11 @@ const Search = () => {
         <button onClick={() => handleTagClick("afro")}>Afro</button>
       </div>
       <div>
-        <ImageGrid selectedTag={selectedTag} />
+        {/* <ImageGrid selectedTag={selectedTag} /> */}
       </div>
     </div>
   );
 };
 
 export default Search;
+
