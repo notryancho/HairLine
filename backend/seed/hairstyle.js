@@ -10,77 +10,77 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/hairline', {
 const images = [
   {
     name: 'Wavy Short',
-    img: '/hairstyles/wavyshort.png',
+    url: 'https://i.imgur.com/udyC7em.png',
     tags: ['wavy']
   },
   {
     name: 'Wavy Medium',
-    img: '/hairstyles/wavymed.png',
+    img: 'https://i.imgur.com/jDi5otR.png',
     tags: ['wavy']
   },
   {
     name: 'Wavy Long',
-    img: '/hairstyles/wavymed.png',
+    img: 'https://i.imgur.com/EHGBaX4.png',
     tags: ['wavy'],
   },
   {
     name: 'Thin Short',
-    img: '/hairstyles/thinshort.png',
+    img: 'https://i.imgur.com/5N1jlIt.png',
     tags: ['thin'],
   },
   {
     name: 'Thin Medium',
-    img: '/hairstyles/thinmedd.png',
+    img: 'https://i.imgur.com/BA2afIo.png',
     tags: ['thin'],
   },
   {
     name: 'Thin Medium',
-    img: '/hairstyles/thinmed.png',
+    img: 'https://i.imgur.com/8Ei9sWu.png',
     tags: ['thin'],
   },
   {
     name: 'Thick Short',
-    img: '/hairstyles/thickshort.png',
+    img: 'https://i.imgur.com/NlerdLe.png',
     tags: ['thick'],
   },
   {
     name: 'Thick Medium',
-    img: '/hairstyles/thickmed.png',
+    img: 'https://i.imgur.com/0iR4MK4.png',
     tags: ['thick'],
   },
   {
     name: 'Thick Long',
-    img: '/hairstyles/thicklong.png',
+    img: 'https://i.imgur.com/TwPs86T.png',
     tags: ['thick'],
   },
   {
     name: 'Fine Short',
-    img: '/hairstyles/fineshort.png',
+    img: 'https://i.imgur.com/HmPs0RD.png',
     tags: ['fine'],
   },
   {
     name: 'Fine Medium',
-    img: '/hairstyles/finemed.png',
+    img: 'https://i.imgur.com/7mODHpU.png',
     tags: ['fine'],
   },
   {
     name: 'Fine Long',
-    img: '/hairstyles/finelong.png',
+    img: 'https://i.imgur.com/7MtPC4h.png',
     tags: ['fine'],
   },
   {
     name: 'Afro Short',
-    img: '/hairstyles/afroshort.png',
+    img: 'https://i.imgur.com/eTIWAsx.png',
     tags: ['afro'],
   },
   {
     name: 'Afro Medium',
-    img: '/hairstyles/afromed.png',
+    img: 'https://i.imgur.com/Vcldxp0.png',
     tags: ['afro'],
   },
   {
     name: 'Afro Long',
-    img: '/hairstyles/afrolong.png',
+    img: 'https://i.imgur.com/C1gFMpj.png',
     tags: ['afro'],
   },
   
