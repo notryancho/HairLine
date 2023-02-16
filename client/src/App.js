@@ -4,7 +4,8 @@ import './styles/app.css';
 import Home from './pages/Home';
 import About from './pages/About';
 import Browse from "./pages/Browse";
-import Search from "./pages/Search";
+import ViewDetails from "./pages/ViewDetails";
+
 
 const App = () => {
     return (
@@ -13,8 +14,8 @@ const App = () => {
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/search" element={<Search />} />
                     <Route path="/browse" element={<Browse />} />
+                    <Route path="/hairStyle/:id" element={<ViewDetails />}/>
                 </Routes>
             </main>
             

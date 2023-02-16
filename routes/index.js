@@ -8,6 +8,10 @@ router.get('/getAllHairProducts', controllers.getAllHairProducts)
 
 router.get('/getAllHairTypes', controllers.getAllHairTypes)
 
+router.get('/getHairProductbyId/:id', controllers.getHairProductById)
+
+router.get('/getHairTypeById/:id', controllers.getHairTypeById)
+
 router.post('/postComment', controllers.postComment)
 
 router.put('/updateComment', controllers.updateComment)
