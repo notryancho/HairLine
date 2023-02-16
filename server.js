@@ -1,29 +1,22 @@
-const express = require('express');
-const cors = require('cors');
-const logger = require('morgan');
-const routes = require('./routes');
-const db = require('./db'); //connect to mongodb
+const PORT = process.env.PORT || 3001
+const express = require("express")
+const routes = require("./routes")
+const cors = require("cors")
+const morgan = require("morgan")
+const db = require("./db")
+const app = express()
 
-const PORT = process.env.PORT || 3001;
+app.use(cors())
+app.use(express.json())
+app.use(express.static(`${__dirname}/client/build`))
+app.use(morgan("dev"))
+app.use("/api", routes)
+app.get('/*', (req, res) => {
+ res.sendFile(`${__dirname}/client/build/index.html`)
+})
 
-const app = express();
-
-// Middleware
-app.use(cors());
-app.use(logger('dev'));
-app.use(express.json());
-
-
-// Routes
-app.use('/api', routes);
-
-db.on('error', console.error.bind(console, 'MongoDB connection error:'))
-
-app.get('/', (req, res) => res.send('This is the root not api!'))
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+db.on("error", console.error.bind(console, "MongoDB connection error:"))
+app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
 
 
 

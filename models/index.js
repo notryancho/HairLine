@@ -1,11 +1,14 @@
 const { model } = require('mongoose')
-const HairStyleSchema = require('./hairstyle')
-const HairProductSchema = require('./hairproduct')
+const HairTypeSchema = require('./hairtypes')
+const HairProductSchema = require('./hairproducts')
+const CommentsSchema = require('./comments')
 
-const Hairstyle = model('hairstyle', HairStyleSchema)
-const Hairproduct = model('hairproduct', HairProductSchema)
+const Comments = model('Comments', CommentsSchema)
+const HairTypes = model('HairType', HairTypeSchema)
+const HairProducts = model('HairProduct', HairProductSchema)
 
 module.exports = {
-    Hairstyle,
-    Hairproduct
+    HairTypes,
+    HairProducts,
+    Comments
 }
