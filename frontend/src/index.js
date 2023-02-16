@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom'
-import { getImagesByTag } from './api';
+import { getImagesByTag } from './utils/api';
+
 
 
 const displayImages = async (tag) => {
