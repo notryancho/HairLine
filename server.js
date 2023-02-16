@@ -19,6 +19,8 @@ app.use('/api', routes);
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
+app.get('/', (req, res) => res.send('This is the root not api!'))
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

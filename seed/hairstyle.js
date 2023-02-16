@@ -37,7 +37,7 @@ const main = async () => {
     tags: ['thin'],
   },
   {
-    name: 'Thin Medium',
+    name: 'Thin Medium 2',
     url: 'https://i.imgur.com/8Ei9sWu.png',
     tags: ['thin'],
   },
