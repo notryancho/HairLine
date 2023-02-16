@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const images = [
+const hairstyles = [
   { tags: ['thickshort'], url: 'https://i.imgur.com/NlerdLe.png' },
   { tags: ['thickmed'], url: 'https://i.imgur.com/0iR4MK4.png' },
   { tags: ['thicklong'], url: 'https://i.imgur.com/TwPs86T.png' },
@@ -21,7 +21,7 @@ const images = [
 
 app.get('/api/images', (req, res) => {
   const { tag } = req.query;
-  const filteredImages = images.filter(image => image.tags.includes(tag));
+  const filteredImages = hairstyles.filter((hairstyle) => hairstyle.tags.includes(tag));
   const imageUrls = filteredImages.map(image => image.url);
   res.json(imageUrls);
 });

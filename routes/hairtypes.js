@@ -1,9 +1,9 @@
-const db = require('../db')
-const Hairtype= require('../models/hairtype')
-db.on('error', console.error.bind(console, 'MongoDB connection error'))
 
-const main = async() => {
-    const hairtypes = [
+const express = require('express');
+const app = express();
+
+const hairtypes = [
+  
     { 
         name: 'Thick Short',
         url: 'https://i.imgur.com/NlerdLe.png'
@@ -64,18 +64,15 @@ const main = async() => {
         name: 'Afro Long',
         url: 'https://i.imgur.com/C1gFMpj.png'
     },
+  ]
 
-    ]
-    await Hairtype.insertMany(hairtypes) 
-        console.log('created hairtypes') 
-}
+app.get('/api/images', (req, res) => {
+  const { tag } = req.query;
+  const filteredImages = hairtypes.filter((hairtype) => hairtype.tags.includes(tag));
+  const imageUrls = filteredImages.map(image => image.url);
+  res.json(imageUrls);
+});
 
-const run = async() => {
-    await main()
-    db.close() 
-}
-
-run() 
-
-
-
+app.listen(3000, () => {
+  console.log('Server listening on port 3000');
+});
