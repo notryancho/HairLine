@@ -14,7 +14,7 @@ const ViewDetails = () => {
 
   const getDetails = async () => {
     const details = await axios.get(
-      `http://localhost:3001/api/getHairTypeById/${id}`
+      `/api/getHairTypeById/${id}`
     )
     setDetails(details.data.hairType)
   }
@@ -25,9 +25,9 @@ const ViewDetails = () => {
 
   const handlePost = async (e, newComment) => {
     e.preventDefault()
-   const comment = await axios.post(`http://localhost:3001/api/postComment`, newComment)
+   const comment = await axios.post(`/api/postComment`, newComment)
    
-   await axios.put(`http://localhost:3001/api/updateHairTypeById/${details._id}`, {
+   await axios.put(`/api/updateHairTypeById/${details._id}`, {
     // comments: [details.]
     comments: [...details.comments, comment.data.comment._id],
    })
@@ -38,13 +38,13 @@ const ViewDetails = () => {
   
   const handleEdit = async (e, id, newComment) => {
     e.preventDefault()
-    await axios.put(`http://localhost:3001/api/updateCommentById/${id}`, newComment)
+    await axios.put(`/api/updateCommentById/${id}`, newComment)
     getDetails()
 
   };
   
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:3001/api/deleteCommentById/${id}`)
+    await axios.delete(`/api/deleteCommentById/${id}`)
     getDetails()
   };
 
@@ -58,10 +58,12 @@ const ViewDetails = () => {
       <div className="details-container">
         {window.location.pathname !== "/" && <Nav />}
         <h1>{details.name}</h1>
-        <img src={details.imageUrl} alt="details" />
+        <div className="image-container">
+          <img src={details.imageUrl} alt="details" />
+        </div>
         <p>DESCRIPTION:</p>
         <p> {details.description}</p>
-        <Comment handlePost={handlePost} edit={false}/>
+        <Comment handlePost={handlePost} edit={false} />
         {details.comments && (
           <div className="comments-container">
             {details.comments.map((comment) => (
@@ -72,14 +74,16 @@ const ViewDetails = () => {
                   <button onClick={() => toggleEdit(comment._id)}>Edit</button>
                   <button onClick={() => handleDelete(comment._id)}>Delete</button>
                 </div>
-                {toggle && <Comment handleEdit={handleEdit} edit={true} id={comment._id}/>}
+                {toggle && (
+                  <Comment handleEdit={handleEdit} edit={true} id={comment._id} />
+                )}
               </div>
             ))}
           </div>
         )}
       </div>
     )
-  )
-}
+  );
+};
 
-export default ViewDetails
+export default ViewDetails;

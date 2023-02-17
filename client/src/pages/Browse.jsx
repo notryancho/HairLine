@@ -7,7 +7,7 @@ const Browse = () => {
   const [hairTypes, setHairTypes] = useState([]);
 
   const getHairTypes = async () => {
-    const types = await axios.get("http://localhost:3001/api/getAllHairTypes");
+    const types = await axios.get('/api/getAllHairTypes');
     setHairTypes(types.data.hairTypes);
   };
 

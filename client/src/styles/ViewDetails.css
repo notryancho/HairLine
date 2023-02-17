@@ -74,4 +74,14 @@
     margin: 4px 2px;
     cursor: pointer;
   }
+
+  .image-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .image-container img {
+    flex: 0 0 30%;
+  }
+  
   
