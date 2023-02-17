@@ -9,7 +9,7 @@
 
 ## ***Getting Started***
 ***
-### Click to use HairLine: [HairLine](IncludeHTMLWhenReady)
+### Click to use HairLine: [HairLine](https://git.heroku.com/hairline.git)
 
 ***
 ## ***Checklist***
