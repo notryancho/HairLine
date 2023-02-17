@@ -4,15 +4,11 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Browse = () => {
+  const [hairTypes, setHairTypes] = useState([]);
 
-  const [hairTypes, setHairTypes] = useState([]) 
-
-  const getHairTypes= async () => {
-    const types = await axios.get(
-      "http://localhost:3001/api/getAllHairTypes"
-    );
-    setHairTypes(types.data.hairTypes)
-    
+  const getHairTypes = async () => {
+    const types = await axios.get("http://localhost:3001/api/getAllHairTypes");
+    setHairTypes(types.data.hairTypes);
   };
 
   useEffect(() => {
@@ -24,17 +20,17 @@ const Browse = () => {
       {window.location.pathname !== "/" && <Nav />}
       <h1>Browse Hairstyles</h1>
       {hairTypes && (
-      <div className="gallery">
-        {hairTypes.map((hairType) => (
-          <div key={hairType._id}>
-            <Link to={`/hairStyle/${hairType._id}`}>
-            <h3>{hairType.name}</h3>
-          <img src={hairType.imageUrl} alt={hairType.name} />
-          </Link>
-          </div>
-        ))}
-    </div>
-  )}
+        <div className="gallery">
+          {hairTypes.map((hairType) => (
+            <div key={hairType._id}>
+              <Link to={`/browse/hairStyle/${hairType._id}`}>
+                <h3>{hairType.name}</h3>
+                <img src={hairType.imageUrl} alt={hairType.name} />
+              </Link>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
