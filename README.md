@@ -9,7 +9,7 @@
 
 ## ***Getting Started***
 ***
-### Click to use HairLine: [HairLine](https://git.heroku.com/hairline.git)
+### Click to use HairLine: [HairLine](https://hairline.herokuapp.com/)
 
 ***
 ## ***Checklist***
@@ -23,7 +23,7 @@
 * [x] Must be able to navigate between different pages (React Router)
 * [x] Have at least 40 meaningful git commits. You should be committing your changes every time you build a new feature.
 * [x] Your code should be properly indented, spaced, and within code blocks. DO NOT leave in commented out code that was left unused (bad practice). Comments should be in your code to describe what your functions are doing.
-* [] Be deployed on Heroku
+* [x] Be deployed on Heroku
 ***
 ### This project was developed using Node v18.x and leverages the following technologies:
 * [Github](https://github.com/) - Utilized to establish the project repository.
