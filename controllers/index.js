@@ -58,21 +58,6 @@ const getAllComments = async (req, res) => {
     }
 }
 
-// const getAllComment = async (req, res) => {
-//     try {
-//       const { id } = req.params
-//       const comment = await all Comment.findById(id).populate("comments")
-//       if (comment) {
-//         return res.status(200).json({ comment })
-//       }
-//       return res
-//         .status(404)
-//         .send("hairType with the specified ID does not exist")
-//     } catch (error) {
-//       return res.status(500).send(error.message)
-//     }
-//   }
-
 const postComment = async (req, res) => {
   try {
     const comment = await new Comments(req.body)
@@ -85,7 +70,7 @@ const postComment = async (req, res) => {
   }
 }
 
-const updateComment = async (req, res) => {
+const updateCommentById= async (req, res) => {
   try {
     const comment = await Comments.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -96,7 +81,18 @@ const updateComment = async (req, res) => {
   }
 }
 
-const deleteComment = async (req, res) => {
+const updateHairTypeById= async (req, res) => {
+    try {
+      const hairtype = await HairTypes.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+      })
+      res.status(200).json(hairtype)
+    } catch (error) {
+      return res.status(500).send(error.message)
+    }
+  }
+
+const deleteCommentById = async (req, res) => {
   try {
     const { id } = req.params
     const deleted = await Comments.findByIdAndDelete(id)
@@ -116,7 +112,8 @@ module.exports = {
   getHairTypeById,
   getAllComments,
   postComment,
-  updateComment,
-  deleteComment,
+  updateCommentById,
+  updateHairTypeById,
+  deleteCommentById,
 
 }

@@ -18,61 +18,51 @@ const ViewDetails = () => {
     setDetails(details.data.hairType)
   }
 
-
   useEffect(() => {
     getDetails()
   }, [])
 
-//   const handlePost = async (e) => {
-//     e.preventDefault()
-//     const newCommentPackage = {
-//         name:newComment.name, 
-//         comment:newComment.comment
-//     }
-//     const response = await axios.post(`http://localhost:3001/postComment`, newCommentPackage)
-//     setDetails(response.data.hairType);
-//   };
+  const handlePost = async (e, newComment) => {
+    e.preventDefault()
+   const comment = await axios.post(`http://localhost:3001/api/postComment`, newComment)
+   
+   await axios.put(`http://localhost:3001/api/updateHairTypeById/${details._id}`, {
+    // comments: [details.]
+    comments: [...details.comments, comment.data.comment._id],
+   })
+   getDetails()
+
+  };
 
   
-  const handleEdit = async (hairTypeId, commentId, updatedComment) => {
-    const response = await axios.put(`http://localhost:3001/updateComment`, {
-      hairTypeId,
-      commentId,
-      updatedComment,
-    });
-    setDetails(response.data.hairType);
+  const handleEdit = async (id) => {
+    
   };
   
-  const handleDelete = async (hairTypeId, commentId) => {
-    const response = await axios.delete(`http://localhost:3001/deleteComment`, {
-      data: {
-        hairTypeId,
-        commentId,
-      },
-    });
-    setDetails(response.data.hairType);
+  const handleDelete = async (id) => {
+    await axios.delete(`http://localhost:3001/api/deleteCommentById/${id}`)
+    getDetails()
   };
+
+  
   
   return (
     details && (
       <div className="details-container">
         {window.location.pathname !== "/" && <Nav />}
-        
         <h1>{details.name}</h1>
         <img src={details.imageUrl} alt="details" />
-        <p>{details.description}</p>
-        <Comment 
-        //  handlePost={() => handlePost(details._id)} 
-         />
+        <p>Description: {details.description}</p>
+        <Comment handlePost={handlePost} />
         {details.comments && (
           <div className="comments-container">
             {details.comments.map((comment) => (
               <div key={comment._id} className="comment">
-                <p>{comment.name}</p>
-                <p>{comment.comment}</p>
+                <p>Name: {comment.name}</p>
+                <p>Comment: {comment.comment}</p>
                 <div className="comment-buttons">
-                  <button onClick={() => handleEdit(details._id, comment._id)}>Edit</button>
-                  <button onClick={() => handleDelete(details._id, comment._id)}>Delete</button>
+                  <button onClick={() => handleEdit(comment._id)}>Edit</button>
+                  <button onClick={() => handleDelete(comment._id)}>Delete</button>
                 </div>
               </div>
             ))}

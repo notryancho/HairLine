@@ -12,13 +12,13 @@ router.get('/getHairProductbyId/:id', controllers.getHairProductById)
 
 router.get('/getHairTypeById/:id', controllers.getHairTypeById)
 
-router.get('/getHairTypeById/:id/allComment', controllers.getAllComments)
-
 router.post('/postComment', controllers.postComment)
 
-router.put('/updateComment', controllers.updateComment)
+router.put('/updateCommentById/:id', controllers.updateCommentById)
 
-router.delete('/deleteComment', controllers.deleteComment)
+router.put('/updateHairTypeById/:id', controllers.updateHairTypeById)
+
+router.delete('/deleteCommentById/:id', controllers.deleteCommentById)
 
 
 
