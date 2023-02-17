@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <nav style={{ textAlign: "right" }}>
-      <ul style={{ display: "inline-block" }}>
-        <li style={{ display: "inline-block", margin: "0 10px" }}>
-          <Link to="/">Home</Link>
+    <nav style={{ backgroundColor: "#F9F9F9", padding: "20px", textAlign:"right" }}>
+      <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+        <li style={{ display: "inline-block", margin: "0 20px" }}>
+          <Link to="/" style={{ textDecoration: "none", color: "#555", fontSize: "20px" }}>Home</Link>
         </li>
-        <li style={{ display: "inline-block", margin: "0 10px" }}>
-          <Link to="/about">About</Link>
+        <li style={{ display: "inline-block", margin: "0 20px" }}>
+          <Link to="/about" style={{ textDecoration: "none", color: "#555", fontSize: "20px" }}>About</Link>
         </li>
-        <li style={{ display: "inline-block", margin: "0 10px" }}>
-          <Link to="/browse">Browse</Link>
+        <li style={{ display: "inline-block", margin: "0 20px" }}>
+          <Link to="/browse" style={{ textDecoration: "none", color: "#555", fontSize: "20px" }}>Browse</Link>
         </li>
       </ul>
     </nav>
@@ -20,3 +20,4 @@ const Nav = () => {
 };
 
 export default Nav;
+
