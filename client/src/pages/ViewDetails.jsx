@@ -7,6 +7,7 @@ import '../styles/ViewDetails.css';
 
 const ViewDetails = () => {
   const [details, setDetails] = useState([])
+  const [toggle, setToggle] = useState(false) 
   let { id } = useParams()
 
 
@@ -44,6 +45,9 @@ const ViewDetails = () => {
     getDetails()
   };
 
+  const toggleEdit = () => {
+    setToggle(!toggle)
+  }
   
   
   return (
@@ -53,7 +57,7 @@ const ViewDetails = () => {
         <h1>{details.name}</h1>
         <img src={details.imageUrl} alt="details" />
         <p>Description: {details.description}</p>
-        <Comment handlePost={handlePost} />
+        <Comment handlePost={handlePost} edit={false}/>
         {details.comments && (
           <div className="comments-container">
             {details.comments.map((comment) => (
@@ -61,9 +65,10 @@ const ViewDetails = () => {
                 <p>Name: {comment.name}</p>
                 <p>Comment: {comment.comment}</p>
                 <div className="comment-buttons">
-                  <button onClick={() => handleEdit(comment._id)}>Edit</button>
+                  <button onClick={() => toggleEdit(comment._id)}>Edit</button>
                   <button onClick={() => handleDelete(comment._id)}>Delete</button>
                 </div>
+                {toggle && <Comment handleEdit={handleEdit} edit={true}/>}
               </div>
             ))}
           </div>
