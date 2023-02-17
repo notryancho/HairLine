@@ -36,8 +36,11 @@ const ViewDetails = () => {
   };
 
   
-  const handleEdit = async (id) => {
-    
+  const handleEdit = async (e, id, newComment) => {
+    e.preventDefault()
+    await axios.put(`http://localhost:3001/api/updateCommentById/${id}`, newComment)
+    getDetails()
+
   };
   
   const handleDelete = async (id) => {
@@ -68,7 +71,7 @@ const ViewDetails = () => {
                   <button onClick={() => toggleEdit(comment._id)}>Edit</button>
                   <button onClick={() => handleDelete(comment._id)}>Delete</button>
                 </div>
-                {toggle && <Comment handleEdit={handleEdit} edit={true}/>}
+                {toggle && <Comment handleEdit={handleEdit} edit={true} id={comment._id}/>}
               </div>
             ))}
           </div>

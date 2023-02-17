@@ -2,7 +2,7 @@ import "../styles/Comment.css";
 import { useState } from "react";
 
 
-const Comment = ({ handlePost, handleEdit, edit }) => {
+const Comment = ({ handlePost, handleEdit, edit, id }) => {
   const initialState = {
     name: "",
     comment: "",
@@ -41,15 +41,15 @@ const Comment = ({ handlePost, handleEdit, edit }) => {
         />
         <div className="button-container">
           <button type="submit">SUBMIT YA SEXY</button>
-          <button type="reset">Reset</button>
+          
         </div>
       </form>
     </div>
   ) : (
   
     <div>
-      <h1>Edit Comment</h1>
-      <form onSubmit={(e) => handleEdit(e, newComment)}> 
+      <h3>Edit Comment</h3>
+      <form onSubmit={(e) => handleEdit(e, id, newComment)}>
         <label htmlFor="name">Name</label>
         <input
           onChange={handleChange}
@@ -73,8 +73,8 @@ const Comment = ({ handlePost, handleEdit, edit }) => {
           name="comment"
         />
         <div className="button-container">
-          <button type="submit">SUBMIT CUTIE</button>
-          <button type="reset">Reset</button>
+          <button type="submit">SUBMIT EDIT CUTIE</button>
+          
         </div>
       </form>
     </div>
