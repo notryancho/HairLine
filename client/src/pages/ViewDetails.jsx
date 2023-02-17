@@ -59,7 +59,8 @@ const ViewDetails = () => {
         {window.location.pathname !== "/" && <Nav />}
         <h1>{details.name}</h1>
         <img src={details.imageUrl} alt="details" />
-        <p>Description: {details.description}</p>
+        <p>DESCRIPTION:</p>
+        <p> {details.description}</p>
         <Comment handlePost={handlePost} edit={false}/>
         {details.comments && (
           <div className="comments-container">
