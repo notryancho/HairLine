@@ -48,6 +48,31 @@ const getHairTypeById = async (req, res) => {
   }
 }
 
+const getAllComments = async (req, res) => {
+    try {
+        const { id } = req.params
+        const comments = await Comments.find({ hairId: id })
+        return res.status(200).json(comments)
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+}
+
+// const getAllComment = async (req, res) => {
+//     try {
+//       const { id } = req.params
+//       const comment = await all Comment.findById(id).populate("comments")
+//       if (comment) {
+//         return res.status(200).json({ comment })
+//       }
+//       return res
+//         .status(404)
+//         .send("hairType with the specified ID does not exist")
+//     } catch (error) {
+//       return res.status(500).send(error.message)
+//     }
+//   }
+
 const postComment = async (req, res) => {
   try {
     const comment = await new Comments(req.body)
@@ -89,7 +114,9 @@ module.exports = {
   getAllHairTypes,
   getHairProductById,
   getHairTypeById,
+  getAllComments,
   postComment,
   updateComment,
   deleteComment,
+
 }

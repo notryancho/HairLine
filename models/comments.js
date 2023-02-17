@@ -11,6 +11,8 @@ const CommentsSchema = new Schema (
           type: String,
           required: true
         }, 
+        hairId: [{
+            type: Schema.Types.ObjectId, ref: "Comments" }],  
       });
       
       module.exports = CommentsSchema; 
